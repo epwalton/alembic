@@ -9,20 +9,6 @@
     {% assign url = item.url | relative_url %}
     {% endif %}
 
-    {% if item.sub_navigation %}
-    <li class="item  item--nav" onclick="void(0)" aria-haspopup="true">
-      <a>{{ item.title }}</a>
-      <ul class="dropdown-content">
-        {% for subitem in item.sub_navigation %}
-        {% assign combined_url = url | append: subitem.url %}
-        {% assign combined_item_url = item.url | append: subitem.url %}
-        <li class="subitem subitem--nav{% if combined_item_url == page.url %} subitem--current{% endif %}">
-          <a href="{{ combined_url }}" title="Page - {{ subitem.title }}">{{ subitem.title }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </li>
-    {% else %}
     <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
       <a href="{{ url }}">{{ item.title }}</a>
     </li>
