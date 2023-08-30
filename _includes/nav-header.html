@@ -9,7 +9,7 @@
         {% assign url = item.url | relative_url %}
       {% endif %}
 
-    {% if item.sub_navigation %}
+      {% if item.sub_navigation %}
         <li class="item  item--nav" onclick="void(0)" aria-haspopup="true">
           <a>{{ item.label }}</a>
           <ul class="dropdown-content">
