@@ -9,6 +9,12 @@
     {% assign url = item.url | relative_url %}
     {% endif %}
 
+    {% if item.sub_navigation %}
+    <li class="item  item--nav" onclick="void(0)" aria-haspopup="true">
+      <a>{{ item.title }} subnav</a>
+      </ul>
+    </li>
+    {% else %}
     <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
       <a href="{{ url }}">{{ item.title }}</a>
     </li>
