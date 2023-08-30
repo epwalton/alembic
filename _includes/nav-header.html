@@ -3,29 +3,29 @@
   <ul class="list  list--nav">
     {% for item in site.navigation_header %}
 
-      {% if item.url contains '://' %}
-        {% assign url = item.url %}
-      {% else %}
-        {% assign url = item.url | relative_url %}
-      {% endif %}
+    {% if item.url contains '://' %}
+    {% assign url = item.url %}
+    {% else %}
+    {% assign url = item.url | relative_url %}
+    {% endif %}
 
-      {% if item.sub_navigation %}
-        <li class="item  item--nav" onclick="void(0)" aria-haspopup="true">
-          <a>{{ item.label }}</a>
-          <ul class="dropdown-content">
-            {% for subitem in item.sub_navigation %}
-              {% assign combined_url = url | append: subitem.url %}
-              {% assign combined_item_url = item.url | append: subitem.url %}
-              <li class="subitem subitem--nav{% if combined_item_url == page.url %} subitem--current{% endif %}">
-                <a href="{{ combined_url }}" title="Page - {{ subitem.label }}">{{ subitem.label }}</a>
-              </li>
-            {% endfor %}
-          </ul>
+    {% if item.sub_navigation %}
+    <li class="item  item--nav" onclick="void(0)" aria-haspopup="true">
+      <a>{{ item.title }}</a>
+      <ul class="dropdown-content">
+        {% for subitem in item.sub_navigation %}
+        {% assign combined_url = url | append: subitem.url %}
+        {% assign combined_item_url = item.url | append: subitem.url %}
+        <li class="subitem subitem--nav{% if combined_item_url == page.url %} subitem--current{% endif %}">
+          <a href="{{ combined_url }}" title="Page - {{ subitem.title }}">{{ subitem.title }}</a>
         </li>
-      {% else %}
-      <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
-        <a href="{{ url }}">{{ item.title }}</a>
-      </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% else %}
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="{{ url }}">{{ item.title }}</a>
+    </li>
     {% endfor %}
   </ul>
   <button class="button  button--nav" aria-label="Menu toggle">
@@ -33,13 +33,13 @@
   </button>
 </nav>
 {% else %}
-  {% include nav-default.html %}
+{% include nav-default.html %}
 {% endif %}
 
 <script type="text/javascript">
   // Get list and button
   const navList = document.querySelector('.header .list--nav')
-  const button  = document.querySelector('.header .button--nav')
+  const button = document.querySelector('.header .button--nav')
 
   // Hide nav and apply toggle
   const collapseNav = () => {
