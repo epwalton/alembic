@@ -4,3 +4,77 @@ styles: true
 ---
 
 @import "alembic";
+
+// Lists
+.list {
+  list-style: none;
+  .item--post,
+  .item--result,
+  .item--category {
+    margin-left: 0;
+  }
+}
+
+.item {
+  &--nav {
+    display: inline-block;
+    margin-left: 1rem;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  &--nav:hover .dropdown-content,
+  &--nav:focus .dropdown-content,
+  &--nav:active .dropdown-content {
+    display: block;
+    padding-left: .8rem;
+    padding-right: .8rem;
+    border-radius: 4px;
+  }
+
+  &--current {
+    a {
+      opacity: 0.5;
+    }
+  }
+}
+
+.subitem {
+  text-align: left;
+
+  a {
+      opacity: 1;
+  }
+
+  &--nav {
+    display: block;
+    margin-top: 1rem;
+    &:first-of-type {
+      margin-top: 1rem;
+    }
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: $linkColour;
+    }
+  }
+
+  &--current {
+    a {
+      opacity: 0.5;
+    }
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $backgroundColour;
+  min-width: 160px;
+  list-style-type: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
