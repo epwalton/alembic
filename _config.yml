@@ -89,6 +89,16 @@ defaults:
       type: "pages"
     values:
       layout: page # Set the default layout for pages
+  - 
+    scope:
+      path: "en"
+    values:
+      lang: "en" # Set the default language for pages
+  - 
+    scope:
+      path: "it"
+    values:
+      lang: "it" # Set the default language for pages
 
 # 7. Site settings
 encoding: utf-8 # Make sure the encoding is right
