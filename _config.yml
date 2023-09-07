@@ -96,9 +96,9 @@ defaults:
       lang: "en" # Set the default language for pages
   - 
     scope:
-      path: "it"
+      path: "fr"
     values:
-      lang: "it" # Set the default language for pages
+      lang: "fr" # Set the default language for pages
 
 # 7. Site settings
 encoding: utf-8 # Make sure the encoding is right
